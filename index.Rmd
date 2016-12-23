@@ -36,7 +36,7 @@ beerSites <- c(
 )
 
 beerIcon <- makeIcon(
-  iconUrl = "http://icons.iconarchive.com/icons/iconshock/real-vista-food/128/beer-icon.png",
+  iconUrl = "beer-icon.png",
   iconWidth = 31*215/230, iconHeight = 31,
   iconAnchorX = 31*215/230/2, iconAnchorY = 16
 )
