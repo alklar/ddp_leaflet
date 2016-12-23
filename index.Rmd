@@ -1,0 +1,50 @@
+---
+title: "10 cool places to have a beer in Potsdam"
+#author: "Alexander Klar"
+date: "December 23, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Here I have marked some cool places in my hometown to enjoy a beer.  
+There are other cool places as well, you can find out by yourself.  
+Click on the beer icons for more details: 
+
+```{r leaflet, echo = FALSE}
+library (leaflet)
+beerLatLong <- data.frame(
+  lat = c (52.3591, 52.4221, 52.4041, 52.4014063, 52.4105252, 52.39376, 52.4018691, 52.4021311, 52.403095, 52.4031004),
+  lng = c (13.0227, 13.0696, 13.0755, 13.0736011, 13.0819105, 13.0597581, 13.0534689, 13.0576807, 13.058096, 13.0617548)
+)
+
+beerSites <- c(
+"<a href='http://www.braumanufaktur.de/'>Forsthaus Templin</a>",
+"<a href='http://www.meierei-potsdam.de/'>Alte Meierei</a>",
+"<a href='http://www.john-barnett.de/'>John Barnett Schiffsrestaurant</a>",
+"<a href='http://www.marina-am-tiefen-see.de/'>Marina am Tiefen See</a>",
+"<a href='http://www.lokalitaet-potsdam.de/'>LOKalität an der Glienicker Brücke</a>",
+"<a href='http://www.mercure-potsdam.com/'>Mercure Potsdam</a>",
+"<a href='http://www.barfritzn.de/'>Bar Fritz'n</a>",
+"<a href='http://www.hafthorn.de/'>Hafthorn</a>",
+"<a href='http://www.cafeheider.de/'>Café Heider</a>",
+"<a href='http://www.hohle-birne.de/'>Hohle Birne</a>"
+
+)
+
+beerIcon <- makeIcon(
+  iconUrl = "http://icons.iconarchive.com/icons/iconshock/real-vista-food/128/beer-icon.png",
+  iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16
+)
+
+beerLatLong %>%
+leaflet () %>%
+addTiles () %>%
+addMarkers (icon = beerIcon,popup = beerSites)
+```  
+  
+### Warning: Somes places serve other drinks as well.
